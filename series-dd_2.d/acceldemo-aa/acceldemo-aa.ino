@@ -23,8 +23,8 @@ Adafruit_LIS3DH lis = Adafruit_LIS3DH();
 void setup(void) {
 
   pinMode(13, 1);
-  digitalWrite(13,1);
-  digitalWrite(13,0);
+  digitalWrite(13,1);  // LED GOES ON
+  digitalWrite(13,0);  // LED GOES OFF (tried it without OFF here, first)
 
   Serial.begin(115200);
 
@@ -34,7 +34,7 @@ void setup(void) {
 
   lis.begin(0x18);
 
-  digitalWrite(13,1);
+  digitalWrite(13,1); //  LED DOES NOT LIGHT
 
 
   // if (! lis.begin(0x19)) {   // change this to 0x19 for alternative i2c address
