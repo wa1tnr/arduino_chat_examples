@@ -1,9 +1,16 @@
 // Basic demo for accelerometer readings from Adafruit LIS3DH
 
-#include <Wire.h>
 #include <SPI.h>
-#include <Adafruit_LIS3DH.h>
+#include <Wire.h>
+
+#include <Adafruit_BusIO_Register.h>
+#include <Adafruit_I2CDevice.h>
+#include <Adafruit_SPIDevice.h>
 #include <Adafruit_Sensor.h>
+#include <Adafruit_LIS3DH.h>
+
+/** I2C ADDRESS/BITS **/
+// #define LIS3DH_DEFAULT_ADDRESS (0x18) // if SDO/SA0 is 3V, its 0x19
 
 // Used for software SPI
 // #define LIS3DH_CLK 13
@@ -21,20 +28,39 @@
 Adafruit_LIS3DH lis = Adafruit_LIS3DH();
 
 void setup(void) {
+  delay(800);
 
   pinMode(13, 1);
+  delay(200);
   digitalWrite(13,1);  // LED GOES ON
+  delay(200);
   digitalWrite(13,0);  // LED GOES OFF (tried it without OFF here, first)
+  delay(200);
 
-  Serial.begin(115200);
+  Serial.begin(9600);
 
-  while (!Serial); // delay(10);     // will pause Zero, Leonardo, etc until serial console opens
+  delay(800);
 
-  Serial.println("how are you LIS3DH test!");
+  while(!Serial);
 
-  lis.begin(0x18);
+  delay(800);
+
+  // while (!Serial); // delay(10);     // will pause Zero, Leonardo, etc until serial console opens
+
+
+  Serial.println("10 Feb Thu 21:44z");
+
+  Serial.println("here we go LIS3DH test!");
+
+  lis.begin(0x19);
 
   digitalWrite(13,1); //  LED DOES NOT LIGHT
+
+
+
+
+
+
 
 
   // if (! lis.begin(0x19)) {   // change this to 0x19 for alternative i2c address
