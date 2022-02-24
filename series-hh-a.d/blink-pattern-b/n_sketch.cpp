@@ -1,4 +1,8 @@
 // Thu 24 Feb 12:33:53 UTC 2022
+
+// design target is:
+// https://wokwi.com/arduino/new?template=arduino-uno
+
 #include <Arduino.h>
 
 #define BLUE 1
