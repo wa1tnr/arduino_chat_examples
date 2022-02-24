@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "wa1tnr -  Thu 24 Feb 12:16:07 UTC 2022   ",
+  "author": "wa1tnr -  Thu 24 Feb 13:02:27 UTC 2022   ",
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-arduino-uno", "id": "uno", "top": 240, "left": 70, "attrs": {} },
