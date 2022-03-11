@@ -1,5 +1,5 @@
 // two pushbuttons with buzzer
-// Fri 11 Mar 16:30:27 UTC 2022
+// Fri 11 Mar 17:04:37 UTC 2022 - works but replicated efforts
 
 // new blank project here:
 // https://wokwi.com/projects/325852677888016978
@@ -75,12 +75,14 @@ void act_on_button_2(void) {
     }
 }
 
-#if 0
+
 // int lastButtonState = LOW;
 bool lastButton_1_state = false;
 bool lastButton_2_state = false;
+
+
 unsigned long debounceDelay = 50;
-#endif
+
 
 void evaluate_booleans(void) {
     act_on_button_1();
@@ -103,10 +105,32 @@ bool read_inputs(void) {
 unsigned long lastB1_DebounceTime = 0;
 unsigned long lastB2_DebounceTime = 0;
 
-#if 0
+
 
 bool button_1_state = false;
 bool button_2_state = false;
+
+
+
+
+void braapr_one(void) {
+    buzzing(buzzer, ( (hertz + (hertz/2)) *2)  );
+}
+
+
+void braapr_two(void) {
+    buzzing(buzzer, ( (hertz + (hertz/2)) *3)  );
+}
+
+void update_last_b1_state(void) {
+  // lastButtonState = reading;
+    lastButton_1_state = button_1_pressed;
+}
+
+void update_last_b2_state(void) {
+    lastButton_2_state = button_2_pressed;
+}
+
 
 void debounce(void) {
     if (button_1_pressed != lastButton_1_state) {
@@ -116,34 +140,31 @@ void debounce(void) {
       lastB2_DebounceTime = millis();
     }
 
-
     if ((millis() - lastB1_DebounceTime) > debounceDelay) {
-      if (button_1_pressed != button_1_State) {
+      if (button_1_pressed == button_1_state) {
         button_1_state = button_1_pressed;
+        if (!button_1_state) {
+          braapr_one();
+        }
       }
     }
-    // payload here?
 
+    // payload here?
+    // buzzing(buzzer, ( (hertz + (hertz/2)) *2)  );
 
     if ((millis() - lastB2_DebounceTime) > debounceDelay) {
-      if (button_2_pressed != button_2_State) {
+      if (button_2_pressed == button_2_state) {
         button_2_state = button_2_pressed;
+        if (!button_2_state) {
+          braapr_two();
+        }
       }
     }
     // payload here?
-
+    update_last_b1_state;
+    update_last_b2_state;
 }
 
-void reset_b1(void) {
-  // lastButtonState = reading;
-    lastButton_1_state = button_1_pressed;
-}
-
-void reset_b2(void) {
-    lastButton_2_state = button_2_pressed;
-}
-
-#endif
 
 void reading(void) {
     while(!read_inputs());
@@ -155,7 +176,7 @@ void setup() {
 
 void loop() {
     reading();
-    // debounce();
+    debounce();
     evaluate_booleans();
 }
 
