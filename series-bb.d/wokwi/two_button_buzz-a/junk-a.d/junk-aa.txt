@@ -1,6 +1,7 @@
 // two pushbuttons with buzzer
 // Fri 11 Mar 16:21:23 UTC 2022
-
+// quick online instance wokwi 11 Mar 16:26z:
+// https://wokwi.com/projects/325849059292086867
 // new debounce foo from:
 // https://github.com/arduino/arduino-examples/blob/main/examples/02.Digital/Debounce/Debounce.ino
 
