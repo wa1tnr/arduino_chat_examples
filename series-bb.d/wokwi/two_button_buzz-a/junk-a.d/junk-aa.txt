@@ -1,7 +1,10 @@
 // two pushbuttons with buzzer
 // Fri 11 Mar 17:04:37 UTC 2022 - works but replicated efforts
 
-// new blank project here:
+// new instance of project here:
+// https://wokwi.com/projects/325855188845855314
+
+// older instance here:
 // https://wokwi.com/projects/325852677888016978
 
 // quick online instance wokwi 11 Mar 16:26z:
