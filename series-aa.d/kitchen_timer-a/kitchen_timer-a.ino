@@ -12,8 +12,17 @@ void setup() {
     count = 0; // base 60 foo idea here
 }
 
+
+void condx_delay(uint8_t counted) {
+  if (counted > 52) {
+    delay(1000);
+    return;
+  }
+  delay(422); // fall-thru so that most of the loop runs faster.
+}
+
 void loop()  {
-  delay(1000); // study
+  condx_delay(count);
   count++; // increment
   if (count > 59) { // base 60 roll-over - modulo-60 foo
       count = 0;
