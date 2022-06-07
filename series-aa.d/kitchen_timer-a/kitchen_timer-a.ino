@@ -1,7 +1,8 @@
 #if 0
+  Variable speed - low or high is slow, mid is fast
+  Tue  7 Jun 13:01:35 UTC 2022
 
-  Tue  7 Jun 12:38:26 UTC 2022
-
+  TODO: count down, not up. ;)
 #endif
 
 uint8_t count;
@@ -12,10 +13,17 @@ void setup() {
     count = 0; // base 60 foo idea here
 }
 
+void same_delay() {
+  delay(1000);
+}
 
 void condx_delay(uint8_t counted) {
   if (counted > 52) {
-    delay(1000);
+    same_delay(); // delay(1000);
+    return;
+  }
+  if (counted < 4) {
+    same_delay();
     return;
   }
   delay(422); // fall-thru so that most of the loop runs faster.
