@@ -6,4 +6,6 @@ Uno R3 (platform agnostic at the moment).
 
   https://wokwi.com/projects/333811128761057874
 
+  https://github.com/wa1tnr/arduino_chat_examples/tree/dvlp-aa/series-aa.d/kitchen_timer-a
+
 END.
