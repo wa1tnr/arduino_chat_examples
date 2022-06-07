@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop()  {
-  delay(8000); // expecting cognitive issues here ;)
+  delay(1000); // study
   count++; // increment
   if (count > 59) { // base 60 roll-over - modulo-60 foo
       count = 0;
