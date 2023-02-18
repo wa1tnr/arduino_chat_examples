@@ -1,6 +1,8 @@
-// inbound to IDE 01:51z
+// inbound to IDE 03:34z
 // NIS version
-// zolkal  terbpia 01:45z last offline edit
+// zolkal  terbpia 03:34z last offline edit
+
+#include <Arduino.h>
 
 #if 0
  decimal 122           2 base !  . 01111010  ok
@@ -18,6 +20,7 @@ void assign_data(uint8_t inbound) {
     data = inbound ;
 }
 
+#if 0 // not today - held for inspection
 // POSSIBLE PROPER BITWISE INVERSION XOR
 void sometimes_inverted() {
     uint8_t not_flipped = data;
@@ -25,9 +28,14 @@ void sometimes_inverted() {
     // UNDO ONLY: // flipped = not_flipped;
     data = flipped;
 }
+#endif // no hooks!
 
 void update() { // low level driver
-    sometimes_inverted();
+    // sometimes_inverted(); likely do NOT need to invert at all in the embedded
+    // data of this sketch. the softserial 'already handles that' and acts as a
+    // universal filter, most likely. anything sent to it (using regular
+    // positive number notation) gets converted on the fly, is the guess here.
+
     connection.write(data);
     delay(1);
 }
