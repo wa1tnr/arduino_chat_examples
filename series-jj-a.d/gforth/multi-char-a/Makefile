@@ -3,4 +3,7 @@
 all:
 	@gforth ./test.fs -e bye
 
+bee:
+	@gforth ./test-b.fs -e bye
+
 # end.
